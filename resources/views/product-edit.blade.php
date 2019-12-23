@@ -28,6 +28,7 @@
                             <input type="text" name="title" id="title" placeholder="Название" value="{{$product->title}}">
                             <input type="textarea" rows="10" cols="30" name="description" id="description" placeholder="Описание" value="{{$product->description}}">
                             <input type="text" name="price" id="price" placeholder="Цена" value="{{$product->price}}">
+
                             
                             <input type="radio" name="label" id="label1" 
                             value="Распродажа" <?php if ($product->label=='Распродажа') { echo 'checked'; } ?>>
@@ -37,10 +38,11 @@
                                 Новинка<Br>                                
                             <input type="radio" name="label" id="label3" 
                             value="Рекомендуем" <?php if ($product->label=='Рекомендуем') { echo 'checked'; } ?>>
-                                Рекомендуем<Br>  
+                                Рекомендуем<Br>
+                            <input type="radio" name="label" id="label" value="Распродажа" value="{{$product->label}}">Распродажа<Br>
+                            <input type="radio" name="label" id="label1" value="Новинка"  value="{{$product->label}}">Новинка<Br>
+                            <input type="radio" name="label" id="label2" value="Рекомендуем" value="{{$product->label}}">Рекомендуем</p>
 
-                            
-                            
                             <!-- <input type="image" name="image" placeholder="Изображение">  -->
                             
                             </div>
