@@ -61,6 +61,7 @@ class ProductsController extends Controller
         $product -> price = request('price');
         $product -> label = request('label');
         $product -> save();
+
         return redirect ('product-new-success');
     }
 

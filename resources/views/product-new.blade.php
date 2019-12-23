@@ -36,6 +36,26 @@
                                     @error('price')
                                     <p style="color: #F00;">{{$errors->first('price')}}</p>
                                     @enderror
+
+                                
+
+                                    
+                                <input type="radio" name="label" id="label1" 
+                                value="Распродажа" {{(old('label') == 'Распродажа') ? 'checked' : ''}}>
+                                Распродажа<Br>
+                                <input type="radio" name="label" id="label2" 
+                                value="Новинка" {{(old('label') == 'Новинка') ? 'checked' : ''}}>
+                                Новинка<Br>                                
+                                <input type="radio" name="label" id="label3" 
+                                value="Рекомендуем" {{(old('label') == 'Рекомендуем') ? 'checked' : ''}}>
+                                Рекомендуем</p>
+                                    @error('label')
+                                    <p style="color: #F00;">{{$errors->first('label')}}</p>
+                                    @enderror
+                                 
+                                 
+                                <!-- <input type="image" name="image" placeholder="Изображение">  -->
+
                                 <input type="radio" name="label" id="label" value="Распродажа">Распродажа<Br>
                                 <input type="radio" name="label" id="label1" value="Новинка">Новинка<Br>                                
                                 <input type="radio" name="label" id="label2" value="Рекомендуем">Рекомендуем</p>
@@ -43,6 +63,7 @@
                                     <p style="color: #F00;">{{$errors->first('label')}}</p>
                                     @enderror
                                  <!-- <input type="image" name="image" placeholder="Изображение">  -->
+
                                
                             </div>
                             <div class="col-lg-12 text-right">

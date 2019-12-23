@@ -62,8 +62,8 @@
                     <ul>
                         <li><a class="{{Request::path() === '/' ? 'active' : ''}}" href="/">Главная</a></li>
                         <li><a  class="{{Request::path() === 'all-products' ? 'active' : ''}}" href="/all-products">Все товары</a>
-                            <ul class="sub-menu">
-                                <!-- <li><a href="/product-page">Страница 1 товара</a></li> -->
+                            <ul class="sub-menu"
+                                <li><a href="/all-products/product-new">Добавление товара</a></li> 
                                 <li><a href="/shopping-cart">Корзина</a></li>
                                 <li><a href="/check-out">Оформить заказ</a></li>
                             </ul>
