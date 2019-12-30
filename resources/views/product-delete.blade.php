@@ -5,12 +5,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-breadcrumb">
-                        <h2>Редактировать товар<span>.</span></h2>
+                        <h2>Удалить товар<span>.</span></h2>
                     </div>
                 </div>
-                <!-- <div class="col-lg-8">
-                    <img src="/img/add.jpg" alt="">
-                </div> -->
+                
             </div>
         </div>
     </section>
@@ -22,7 +20,6 @@
                 <div class="col-lg-8">
                     <form method="POST" enctype="multipart/form-data" action="/all-products/{{$product->id}}" class="contact-form">
                     @csrf
-                    @method('PUT')
                         <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" name="title" id="title" placeholder="Название" value="{{$product->title}}">
@@ -45,9 +42,8 @@
                                 <img src="/img/products/{{$product->image_name}}" width="100" />
                             </div>
                             <div class="col-lg-12 text-right">
-                                <button type="submit">Обновить</button>
-                                
-                            </div>                            
+                                <button type="submit">Удалить</button>
+                            
                             </div>
                         </div>
                     </form> 

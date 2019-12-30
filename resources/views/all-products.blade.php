@@ -4,17 +4,17 @@
     <section class="page-add">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-8">
                     <div class="page-breadcrumb">
-                        <h2>Dresses<span>.</span></h2>
-                        <a href="#">Home</a>
-                        <a href="#">Dresses</a>
-                        <a class="active" href="#">Night Dresses</a>
+                        <h2>Все товары<span>.</span></h2>
+                        
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <img src="img/add.jpg" alt="">
+                <div class="col-lg-4">
+                <div class="page-breadcrumb">
+                            {{$products->links()}}
                 </div>
+                </div> 
             </div>
         </div>
     </section>
@@ -23,37 +23,40 @@
     <!-- Categories Page Section Begin -->
     <section class="categories-page spad">
         <div class="container">
-            <div class="categories-controls">
+            <!-- <div class="categories-controls">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="categories-filter">
-                            <div class="cf-left">
-                                <form action="#">
+                             <div class="cf-left">
+                             <span>Сортировать:</span>
+                                 <form action="#">
                                     <select class="sort">
-                                        <option value="">Sort by</option>
-                                        <option value="">Orders</option>
-                                        <option value="">Newest</option>
-                                        <option value="">Price</option>
+                                        <option value="{{route('shop.index', ['id'=>request()->id, 'sort'=>'new_first']) }}">По умолчанию</option>
+                                        <option value="{{route('shop.index', ['price'=>request()->price, 'sort'=>'min_max']) }}">По цене от min</option>
+                                        <option value="{{route('shop.index', ['price'=>request()->price, 'sort'=>'max_min']) }}">По цене от max</option>
+                                        <a href="{{route('shop.index', ['id'=>request()->id, 'sort'=>'new_first']) }}">По умолчанию / </a>
+                                        <a href="{{route('shop.index', ['price'=>request()->price, 'sort'=>'min_max']) }}">По цене от min / </a>
+                                        <a href="{{route('shop.index', ['price'=>request()->price, 'sort'=>'max_min']) }}">По цене от max</a>
                                     </select>
-                                </form>
-                            </div>
+                                </form>                                 
+                            </div> 
                             <div class="cf-right">
-                                <span>20 Products</span>
-                                <a href="#">2</a>
-                                <a href="#" class="active">4</a>
-                                <a href="#">6</a>
+                            {{$products->links()}}
+                                
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row"> 
                 @foreach ($products as $product)
                 <div class="col-lg-3 col-md-3">
                     <div class="single-product-item">
                     <a href="/all-products/{{$product->id}}">
                         <figure>
-                            <img src="/" alt="">
+                            
+                            <img src="img/products/{{$product->image_name}}" alt="" />
                             <div class="p-status sale">{{$product->label}}</div>
                         </figure></a>
                         <div class="product-text">
@@ -62,16 +65,12 @@
                             </a>
                             <p>{{$product->price}} руб.</p>
                         </div>
+                        <a href="{{route('product.delete',$product)}}"><button value="delete" type="submit">Удалить</button></a>
                     </div>
                 </div>
                 @endforeach
-                <div class="more-product">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <a href="#" class="primary-btn">Load More</a>
-                        </div>
-                    </div>
-                </div>
+                
+    
             </div>
         </div>
     </section>

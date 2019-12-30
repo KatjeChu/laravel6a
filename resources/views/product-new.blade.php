@@ -3,14 +3,12 @@
 <section class="page-add">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <div class="page-breadcrumb">
                         <h2>Добавить новый товар<span>.</span></h2>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <img src="/img/add.jpg" alt="">
-                </div>
+                
             </div>
         </div>
     </section>
@@ -20,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form method="POST"  action="/all-products" class="contact-form">
+                    <form method="POST"  action="/all-products" class="contact-form" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -36,14 +34,28 @@
                                     @error('price')
                                     <p style="color: #F00;">{{$errors->first('price')}}</p>
                                     @enderror
-                                <input type="radio" name="label" id="label" value="Распродажа">Распродажа<Br>
-                                <input type="radio" name="label" id="label1" value="Новинка">Новинка<Br>                                
-                                <input type="radio" name="label" id="label2" value="Рекомендуем">Рекомендуем</p>
+                                
+
+                                    
+                                <input type="radio" name="label" id="label1" 
+                                value="Распродажа" {{(old('label') == 'Распродажа') ? 'checked' : ''}}>
+                                Распродажа<Br>
+                                <input type="radio" name="label" id="label2" 
+                                value="Новинка" {{(old('label') == 'Новинка') ? 'checked' : ''}}>
+                                Новинка<Br>                                
+                                <input type="radio" name="label" id="label3" 
+                                value="Рекомендуем" {{(old('label') == 'Рекомендуем') ? 'checked' : ''}}>
+                                Рекомендуем</p>
                                     @error('label')
                                     <p style="color: #F00;">{{$errors->first('label')}}</p>
                                     @enderror
-                                 <!-- <input type="image" name="image" placeholder="Изображение">  -->
-                               
+                                 
+                                Выберите изображение для загрузки:
+                                <input type="file" name="image" id="image" placeholder="Выберите изображение">
+                                @error('image')
+                                    <p style="color: #F00;">{{$errors->first('image')}}</p>
+                                    @enderror
+                                
                             </div>
                             <div class="col-lg-12 text-right">
                                 <button type="submit">Загрузить</button>
