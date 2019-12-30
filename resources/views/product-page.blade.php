@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <!-- Page Add Section Begin -->
-    <section class="page-add">
+    <!-- <section class="page-add">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -17,29 +17,30 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Page Add Section End -->
 
     <!-- Product Page Section Beign -->
     <section class="product-page">
         <div class="container">
-            <div class="product-control">
+            <!-- <div class="product-control">
                 <a href="#">Previous</a>
                 <a href="#">Next</a>
-            </div>
+            </div> -->
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="product-slider owl-carousel">
+                
+                <div class="col-lg-4">
+                    <!-- <div class="product-slider owl-carousel"> -->
                         <div class="product-img">
                             <figure>
-                                <img src="/" alt="">
+                                <img src="/img/products/{{$product->image_name}}" alt="" />
                                 <div class="p-status">{{$product->label}}</div>
                             </figure>
                         </div>
-                    </div>
+                    <!-- </div> -->
                     
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="product-content">
                         <h2>{{$product->title}}</h2>
                         <div class="pc-meta">
@@ -47,16 +48,28 @@
                             
                         </div>
                         <p>{{$product->description}}</p>
-                        <ul class="tags">
+                        <!-- <ul class="tags">
                             <li><span>Category :</span> Men’s Wear</li>
                             <li><span>Tags :</span> man, shirt, dotted, elegant, cool</li>
-                        </ul>
-                        <div class="product-quantity">
+                        </ul> -->
+                        <!-- <div class="product-quantity">
                             <div class="pro-qty">
                                 <input type="text" value="1">
                             </div>
-                        </div>
-                        <a href="#" class="primary-btn pc-btn">Add to cart</a>
+                        </div> -->
+                        
+                        <form action="{{route('cart.store')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id"  value="{{$product->id}}">
+                        <input type="hidden" name="title"  value="{{$product->title}}">
+                        <input type="hidden" name="price"  value="{{$product->price}}">
+                        <button type="submit" class="primary-btn pc-btn">
+                            Добавить в корзину
+                        </button>
+
+                        </form>
+                        
+                        
                         <!-- <ul class="p-info">
                             <li>Product Information</li>
                             <li>Reviews</li>

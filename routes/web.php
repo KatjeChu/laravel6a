@@ -1,5 +1,6 @@
 <?php
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,29 +16,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/all-products', function () {
-//     $products = App\Product::latest()->get();
-//     return view('all-products',['products'=>$products]);
-// });
-Route::get('/all-products', 'ProductsController@index');
+//
+Route::get('/all-products', 'ProductsController@index')->name('shop.index');;
 Route::post('/all-products', 'ProductsController@store');
 Route::get('/all-products/product-new', 'ProductsController@create');
-Route::get('/all-products/{product}', 'ProductsController@show');
+Route::get('/all-products/{product}', 'ProductsController@show')->name('shop.show');
 Route::get('/all-products/{product}/product-edit', 'ProductsController@edit');
 Route::put('/all-products/{product}', 'ProductsController@update');
+Route::get('/all-products/{product}/product-delete', 'ProductsController@destroy')->name('product.delete');
+Route::get('/search','ProductsController@search')->name('search') ;
 
-Route::get('/product-page', function () {
-    return view('product-page');
-});
 Route::get('/product-new-success', function () {
     return view('product-new-success');
 });
-Route::get('/check-out', function () {
-    return view('check-out');
+//
+Route::get('/shopping-cart', 'CartController@index')->name('cart.index');
+Route::post('/shopping-cart', 'CartController@store')->name('cart.store');
+Route::delete('/shopping-cart/{product}', 'CartController@destroy')->name('cart.destroy');
+Route::get('empty',function (){
+    Cart::destroy();
 });
-Route::get('/contact', function () {
-    return view('contact');
+//
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+//
+Route::get('/contact', 'SendMailController@index')->name('contact.index');
+Route::post('/contact', 'SendMailController@store')->name('contact.store');
+//
+Route::get('/thx', function () {
+    return view('thx');
 });
-Route::get('/shopping-cart', function () {
-    return view('shopping-cart');
-});
+//
+

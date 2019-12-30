@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
-                        <h2>Contact us<span>.</span></h2>
+                        <h2>Напишите нам<span>.</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -22,52 +22,61 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="#" class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="First Name">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Last Name">
-                            </div>
+                    <form method="POST" action="{{route('contact.store')}}" class="contact-form">
+                    @csrf    
+                    <div class="row">
                             <div class="col-lg-12">
-                                <input type="email" placeholder="E-mail">
-                                <input type="text" placeholder="Subject">
-                                <textarea placeholder="Message"></textarea>
+                                <input type="text" name="name" id="name" placeholder="Имя" value="{{old('name')}}">
+                                    @error('name')
+                                    <p style="color: #F00;">{{$errors->first('name')}}</p>
+                                    @enderror
+                                <input type="email" name="email"  id="email" placeholder="E-mail" value="{{old('email')}}">
+                                    @error('email')
+                                    <p style="color: #F00;">{{$errors->first('email')}}</p>
+                                    @enderror
+                                <input type="text" name="subject" id="subject" placeholder="Тема письма" value="{{old('subject')}}">
+                                    @error('subject')
+                                    <p style="color: #F00;">{{$errors->first('subject')}}</p>
+                                    @enderror
+                                <textarea name="message" id="message" placeholder="Сообщение" value="{{old('message')}}"></textarea>
+                                    @error('message')
+                                    <p style="color: #F00;">{{$errors->first('message')}}</p>
+                                    @enderror
                             </div>
                             <div class="col-lg-12 text-right">
-                                <button type="submit">Send message</button>
+                                <button type="submit">Отправить</button>
                             </div>
                         </div>
-                    </form>
+                    </form> 
+
+                   
                 </div>
                 <div class="col-lg-3 offset-lg-1">
                     <div class="contact-widget">
                         <div class="cw-item">
-                            <h5>Location</h5>
+                            <h5>Адрес</h5>
                             <ul>
-                                <li>1525 Awesome Lane, </li>
-                                <li>Los Angeles, CA</li>
+                                <li>ул.Козлова 33, </li>
+                                <li>г.Солигорск, РБ</li>
                             </ul>
                         </div>
                         <div class="cw-item">
-                            <h5>Phone</h5>
+                            <h5>Телефоны</h5>
                             <ul>
-                                <li>+1 (603)535-4592</li>
-                                <li>+1 (603)535-4556</li>
+                                <li>+375 29 1234567</li>
+                                <li>+375 33 1234567</li>
                             </ul>
                         </div>
                         <div class="cw-item">
                             <h5>E-mail</h5>
                             <ul>
-                                <li>contact@violetstore.com</li>
-                                <li>www.violetstore.com</li>
+                                <li>example@example.com</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="map">
+            <!-- <div class="map">
                 <div class="row">
                     <div class="col-lg-12">
                         <iframe
@@ -75,7 +84,7 @@
                             height="560" style="border:0;" allowfullscreen=""></iframe>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Contact Section End -->
