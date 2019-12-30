@@ -1,28 +1,9 @@
 @extends('layout')
 @section('content')
-<!-- Page Add Section Begin -->
-    <!-- <section class="page-add cart-page-add">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="page-breadcrumb">
-                        <h2>Cart<span>.</span></h2>
-                        <a href="#">Home</a>
-                        <a href="#">Dresses</a>
-                        <a class="active" href="#">Night Dresses</a>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <img src="img/add.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Page Add Section End -->
-
     <!-- Cart Page Section Begin -->
     <div class="cart-page">
-    <!-- Проверка, добавлен ли товар в корзину -->
+    
+    <div>
         @if (session() -> has ('success_message'))
         <div class="alert alert-success">
         {{session()->get('success_message')}} 
@@ -38,7 +19,7 @@
         </ul>
         </div>
         @endif
-    <!-- endof Проверка, добавлен ли товар в корзину -->
+    </div>
     
 
         <div class="container">

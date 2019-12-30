@@ -12,22 +12,6 @@ class SendMailController extends Controller
         {            
             return view('contact');            
         }
-    
-        // public function send(Request $request){
-        //     // validate fields
-        //     $this->validate($request, [
-        //         'name' => ['required', 'string'],
-        //         'email' => ['required', 'email'],
-        //         'subject' => ['required', 'string'],
-        //         'message' => ['required', 'string']
-        //     ]);
-    
-        //     // redirect to contact form with message
-        //     //session()->flash('success', 'Сообщение отправлено');    
-        //     // return redirect()->back();
-        //     return redirect ('thx');
- 
-        // }
 
         public function store()
         {            
