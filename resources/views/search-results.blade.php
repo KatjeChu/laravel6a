@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="page-breadcrumb">
                         <h2>Вы искали<span> :{{request()->input('query')}}</span></h2>
-                        
+                        <h5>Результатов: {{$products -> count()}}</h5>
                     </div>
                 </div>
                  
@@ -38,9 +38,8 @@
 
 
         <div class="container">
-        <div class="row"> 
-           
-            @foreach ($products as $product)
+        <div class="row">         
+            @foreach ($products as $product)            
             <div class="col-lg-2 col-md-2">
                 <div class="single-product-item">
                     <a href="/all-products/{{$product->id}}">
@@ -58,9 +57,8 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-            
-        </div>
+            @endforeach        
+        </div>       
         </div>
     </section>
     <!-- Categories Page Section End -->

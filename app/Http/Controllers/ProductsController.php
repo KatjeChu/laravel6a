@@ -14,12 +14,12 @@ class ProductsController extends Controller
 
     public function index(){
         $products = Product::latest()-> take(8)->paginate(8);
-        if  (request()->sort=='min_max'){
-            $products = $products->sortBy('price')->paginate(8);
-        } 
-        elseif (request()->sort=='max_min'){
-            $products = $products->orderBy('price','desc')->paginate(8);
-        } 
+        // if  (request()->sort=='min_max'){
+        //     $products = $products->sortBy('price')->paginate(8);
+        // } 
+        // elseif (request()->sort=='max_min'){
+        //     $products = $products->orderBy('price','desc')->paginate(8);
+        // } 
 
         return view('all-products',['products'=>$products]);
     }

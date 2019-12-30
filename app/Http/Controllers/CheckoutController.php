@@ -26,35 +26,14 @@ class CheckoutController extends Controller
 
     
     public function store(Request $request)
-    {
-        // $contents=Cart::content()->map(function ($item){
-        // return $item->model->title.', '.$item->id;
-        // })->values()->toArray();
-
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'surname' => 'required',
-        //     'address' => 'required',
-        //     'phonenumber' => 'required'
-        //     // 'metadata' =>[
-        //     //     'contents'=>$contents,
-        //     //     ],
-            
-        // ]); 
-        //return $contents;
-        
+    {             
         $contactdata=request()->validate([
             'name'=>'required',
             'surname'=>'required',
             'address'=>'required',
             'phonenumber'=>'required'
         ]);
-
-
-        //return $bla;
-        //$blabla=array_merge ($contents, $bla);
-       //return $blabla;
-
+        
         Mail::send( new CheckoutMail() );
         Cart::instance('default')->destroy();
         return redirect ('thx');
