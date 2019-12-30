@@ -34,8 +34,6 @@
                                     @error('price')
                                     <p style="color: #F00;">{{$errors->first('price')}}</p>
                                     @enderror
-                                
-
                                     
                                 <input type="radio" name="label" id="label1" 
                                 value="Распродажа" {{(old('label') == 'Распродажа') ? 'checked' : ''}}>
@@ -46,6 +44,7 @@
                                 <input type="radio" name="label" id="label3" 
                                 value="Рекомендуем" {{(old('label') == 'Рекомендуем') ? 'checked' : ''}}>
                                 Рекомендуем</p>
+
                                     @error('label')
                                     <p style="color: #F00;">{{$errors->first('label')}}</p>
                                     @enderror
@@ -55,7 +54,8 @@
                                 @error('image')
                                     <p style="color: #F00;">{{$errors->first('image')}}</p>
                                     @enderror
-                                
+
+                                   
                             </div>
                             <div class="col-lg-12 text-right">
                                 <button type="submit">Загрузить</button>

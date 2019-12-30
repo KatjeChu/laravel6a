@@ -80,6 +80,7 @@ class ProductsController extends Controller
         $product -> description = request('description');
         $product -> price = request('price');
         $product -> label = request('label');
+
         
         $image_name = request('image');
         $image = request('image');
@@ -97,6 +98,10 @@ class ProductsController extends Controller
         }
 
         $product -> save();        
+
+        $product -> save();
+
+
         return redirect ('product-new-success');
     }
 

@@ -62,10 +62,12 @@
                     <ul>
                         <li><a class="{{Request::path() === '/' ? 'active' : ''}}" href="/">Главная</a></li>
                         <li><a  class="{{Request::path() === 'all-products' ? 'active' : ''}}" href="/all-products">Все товары</a>
+
                             <ul class="sub-menu">
                                 <li><a href="/all-products/product-new">Добавление товара</a></li> 
                                 <li><a href="{{route('cart.index')}}">Корзина</a></li>
                                 <li><a href="{{route('checkout.index')}}">Оформить заказ</a></li>
+
                             </ul>
                         </li>
                         <li><a  class="{{Request::path() === 'contact' ? 'active' : ''}}" href="/contact">Контакты</a></li>
