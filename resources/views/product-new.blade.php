@@ -45,9 +45,7 @@
                                 value="Рекомендуем" {{(old('label') == 'Рекомендуем') ? 'checked' : ''}}>
                                 Рекомендуем</p>
 
-                                    @error('label')
-                                    <p style="color: #F00;">{{$errors->first('label')}}</p>
-                                    @enderror
+                                   
                                  
                                 Выберите изображение для загрузки:
                                 <input type="file" name="image" id="image" placeholder="Выберите изображение">

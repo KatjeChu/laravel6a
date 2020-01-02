@@ -44,7 +44,6 @@ class ProductsController extends Controller
             'title'=>'required',
             'description'=>'required',
             'price'=>'required',
-            'label'=>'required',
             'image' => 'required|image|max:2048'            
         ]);
         
@@ -72,8 +71,7 @@ class ProductsController extends Controller
         request()->validate([
             'title'=>'required',
             'description'=>'required',
-            'price'=>'required',
-            'label'=>'required'
+            'price'=>'required'
         ]);
 
         $product -> title = request('title');
