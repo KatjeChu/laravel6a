@@ -10,7 +10,7 @@
                         <br />
                         <h4>Наши менеджеры проверят ваш заказ и перезвонят вам</h4>
                         <br />
-                        <a href="{{route('shop.index')}}" ><h3>Купить что-нибудь ещё (это ссылка)</h3></a>
+                        <a class="primary-btn chechout-btn" href="{{route('shop.index')}}" ><h3>Купить что-нибудь ещё</h3></a>
                     </div>
                 </div>
                 

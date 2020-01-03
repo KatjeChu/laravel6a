@@ -177,7 +177,7 @@ a {
 
 a:hover {
   color: #1d68a7;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 a:not([href]) {
@@ -5513,6 +5513,7 @@ input[type=button].btn-block {
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
+  padding-top: 12px;
 }
 
 .page-link {
