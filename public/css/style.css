@@ -312,6 +312,7 @@ ol {
 .inner-header .user-access {
 	float: right;
 	margin-right: 100px;
+	margin-top: -8px;
 }
 
 .inner-header .user-access a {

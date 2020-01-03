@@ -7,10 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>KatjeChu | Template</title>
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
@@ -20,6 +26,7 @@
     <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -55,20 +62,50 @@
                     </a>
                 </div>
                 <div class="user-access">
-                    <a href="#">Register</a>
-                    <a href="#" class="in">Sign in</a>
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
+                            </li>
+                            <li> / </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Выйти') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a class="{{Request::path() === '/' ? 'active' : ''}}" href="/">Главная</a></li>
                         <li><a  class="{{Request::path() === 'all-products' ? 'active' : ''}}" href="/all-products">Все товары</a>
-
+                        @if (Auth::check() && (Auth()->user()->role == 1))
                             <ul class="sub-menu">
+                                
                                 <li><a href="/all-products/product-new">Добавление товара</a></li> 
-                                <li><a href="{{route('cart.index')}}">Корзина</a></li>
-                                <li><a href="{{route('checkout.index')}}">Оформить заказ</a></li>
-
+                                
                             </ul>
+                        @endif
                         </li>
                         <li><a  class="{{Request::path() === 'contact' ? 'active' : ''}}" href="/contact">Контакты</a></li>
                     </ul>
@@ -133,6 +170,7 @@
     <script src="/js/jquery.nice-select.min.js"></script>
     <script src="/js/mixitup.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 
 </html>

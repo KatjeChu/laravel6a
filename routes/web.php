@@ -21,7 +21,7 @@ Route::get('/all-products', 'ProductsController@index')->name('shop.index');;
 Route::post('/all-products', 'ProductsController@store');
 Route::get('/all-products/product-new', 'ProductsController@create');
 Route::get('/all-products/{product}', 'ProductsController@show')->name('shop.show');
-Route::get('/all-products/{product}/product-edit', 'ProductsController@edit');
+Route::get('/all-products/{product}/product-edit', 'ProductsController@edit')->name('product.edit');
 Route::put('/all-products/{product}', 'ProductsController@update');
 Route::get('/all-products/{product}/product-delete', 'ProductsController@destroy')->name('product.delete');
 Route::get('/search','ProductsController@search')->name('search') ;
@@ -48,3 +48,7 @@ Route::get('/thx', function () {
 });
 //
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

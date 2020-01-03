@@ -65,7 +65,9 @@
                             </a>
                             <p>{{$product->price}} руб.</p>
                         </div>
+                        @if (Auth::check() && (Auth()->user()->role == 1))
                         <a href="{{route('product.delete',$product)}}"><button value="delete" type="submit">Удалить</button></a>
+                        @endif
                     </div>
                 </div>
                 @endforeach

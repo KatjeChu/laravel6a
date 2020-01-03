@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductsController extends Controller
     }
 
     public function create(){
-        return view('product-new');
+                    return view('product-new');
     }
 
     public function search(Request $request){
@@ -44,7 +45,6 @@ class ProductsController extends Controller
             'title'=>'required',
             'description'=>'required',
             'price'=>'required',
-            'label'=>'required',
             'image' => 'required|image|max:2048'            
         ]);
         
@@ -72,15 +72,13 @@ class ProductsController extends Controller
         request()->validate([
             'title'=>'required',
             'description'=>'required',
-            'price'=>'required',
-            'label'=>'required'
+            'price'=>'required'
         ]);
 
         $product -> title = request('title');
         $product -> description = request('description');
         $product -> price = request('price');
         $product -> label = request('label');
-
         
         $image_name = request('image');
         $image = request('image');
@@ -96,12 +94,7 @@ class ProductsController extends Controller
             $product -> image = request('image')->move('..\public\img\products',$image_path->getClientOriginalName());
         
         }
-
-        $product -> save();        
-
-        $product -> save();
-
-
+        $product -> save();  
         return redirect ('product-new-success');
     }
 

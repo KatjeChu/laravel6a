@@ -66,6 +66,10 @@
                         <button type="submit" class="primary-btn pc-btn">
                             Добавить в корзину
                         </button>
+                        @if (Auth::check() && (Auth()->user()->role == 1))
+                        <a class="primary-btn pc-btn" href="{{route('product.edit',$product)}}"> Редактировать </a>
+                        <a class="primary-btn pc-btn" href="{{route('product.delete',$product)}}">Удалить</a>
+                        @endif
 
                         </form>
                         
