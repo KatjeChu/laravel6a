@@ -57,7 +57,9 @@
                         <figure>
                             
                             <img src="img/products/{{$product->image_name}}" alt="" />
+                            @if (($product->label)!='default')
                             <div class="p-status sale">{{$product->label}}</div>
+                            @endif
                         </figure></a>
                         <div class="product-text">
                             <a href="/all-products/{{$product->id}}">

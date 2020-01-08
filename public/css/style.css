@@ -1800,7 +1800,7 @@ ol {
 	margin-top: 18px;
 }
 
-.checkout-form input[type=text] {
+.checkout-form input[type=text], input[type=tel], input[type=email] {
 	width: 100%;
 	border: 0;
 	padding-bottom: 12px;

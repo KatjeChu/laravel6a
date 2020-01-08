@@ -14,7 +14,14 @@ class SendMailController extends Controller
         }
 
         public function store()
-        {            
+        {    
+            $contactdata=request()->validate([
+                'name'=>'required',
+                'email'=>'required',
+                'subject'=>'required',
+                'message'=>'required',
+            ]);
+
             Mail::send( new SendMail() );  
             return redirect ('thx');         
         }

@@ -26,21 +26,30 @@
                     @csrf    
                     <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" name="name" id="name" placeholder="Имя" value="{{old('name')}}">
-                                    @error('name')
-                                    <p style="color: #F00;">{{$errors->first('name')}}</p>
-                                    @enderror
-                                <input type="email" name="email"  id="email" placeholder="E-mail" value="{{old('email')}}">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  placeholder="Имя">
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <input type="email" name="email"  id="email" placeholder="E-mail" value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror">
                                     @error('email')
-                                    <p style="color: #F00;">{{$errors->first('email')}}</p>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
-                                <input type="text" name="subject" id="subject" placeholder="Тема письма" value="{{old('subject')}}">
+                                <input type="text" name="subject" id="subject" placeholder="Тема письма" value="{{old('subject')}}" class="form-control @error('subject') is-invalid @enderror">
                                     @error('subject')
-                                    <p style="color: #F00;">{{$errors->first('subject')}}</p>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
-                                <textarea name="message" id="message" placeholder="Сообщение" value="{{old('message')}}"></textarea>
+                                <textarea name="message" id="message" placeholder="Сообщение" value="{{old('message')}}" class="form-control @error('message') is-invalid @enderror"></textarea>
                                     @error('message')
-                                    <p style="color: #F00;">{{$errors->first('message')}}</p>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                             </div>
                             <div class="col-lg-12 text-right">

@@ -30,8 +30,9 @@ class CheckoutController extends Controller
         $contactdata=request()->validate([
             'name'=>'required',
             'surname'=>'required',
+            'email'=>'required',
             'address'=>'required',
-            'phonenumber'=>'required'
+            'phonenumber'=>'required',
         ]);
         
         Mail::send( new CheckoutMail() );

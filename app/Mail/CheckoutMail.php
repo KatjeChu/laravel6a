@@ -36,10 +36,10 @@ class CheckoutMail extends Mailable
         ->with([    
             'contactName' => $request->name,
             'contactSurname' => $request->surname,
+            'contactEmail' => $request->email,
             'contactAddress' => $request->address,
             'contactPhonenumber' => $request->phonenumber,
             'contactComment' => $request->comment,
-            // 'contactMetadata'=> $request->contents
         ]);
     }
 }

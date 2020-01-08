@@ -23,19 +23,22 @@
                 @csrf
                     <div class="row">
                         <div class="col-lg-12">
-                            <input type="text" name="title" id="title" placeholder="Название" value="{{old('title')}}">
+                            <input type="text" name="title" id="title" placeholder="Название *" value="{{old('title')}}">
                                 @error('title')
                                 <p style="color: #F00;">{{$errors->first('title')}}</p>
                                 @enderror
-                            <input type="textarea" rows="10" cols="30" name="description" id="description" placeholder="Описание" value="{{old('description')}}">
+                            <input type="textarea" rows="10" cols="30" name="description" id="description" placeholder="Описание *" value="{{old('description')}}">
                                 @error('description')
                                 <p style="color: #F00;">{{$errors->first('description')}}</p>
                                 @enderror
-                            <input type="text" name="price" id="price" placeholder="Цена"  value="{{old('price')}}">
+                            <input type="text" name="price" id="price" placeholder="Цена *"  value="{{old('price')}}">
                                 @error('price')
                                 <p style="color: #F00;">{{$errors->first('price')}}</p>
                                 @enderror
                                 
+                            <input type="radio" name="label" id="label0" 
+                            value="default" {{(old('label') == 'Нет метки') ? 'checked' : ''}} checked="checked">
+                            Нет метки<Br>
                             <input type="radio" name="label" id="label1" 
                             value="Распродажа" {{(old('label') == 'Распродажа') ? 'checked' : ''}}>
                             Распродажа<Br>
@@ -48,7 +51,7 @@
 
                                 
                                 
-                            Выберите изображение для загрузки:
+                            Выберите изображение для загрузки *:
                             <input type="file" name="image" id="image" placeholder="Выберите изображение">
                             @error('image')
                                 <p style="color: #F00;">{{$errors->first('image')}}</p>

@@ -34,7 +34,9 @@
                         <div class="product-img">
                             <figure>
                                 <img src="/img/products/{{$product->image_name}}" alt="" />
-                                <div class="p-status">{{$product->label}}</div>
+                                @if (($product->label)!='default')
+                                <div class="p-status sale">{{$product->label}}</div>
+                                @endif
                             </figure>
                         </div>
                     <!-- </div> -->

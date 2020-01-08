@@ -19,18 +19,14 @@ class SendMail extends Mailable
     
     public function build (Request $request)
     {
-        return $this->from([
-            'address' => $request->email, 
-            'name' => $request->name 
-        ])
-        ->to('katyasashakatyasasha6@gmail.com')
-        ->subject( 'Message from website: ' . $request->subject )
+        return $this->to('katyasashakatyasasha6@gmail.com')
+        ->subject( 'Сообщение из формы обратной связи' )
         ->view('sendmail')
         ->with([    
             'contactName' => $request->name,
             'contactSubject' => $request->subject,
             'contactEmail' => $request->email,
-            'contactMessage' => $request->message
+            'contactMessage' => $request->message,
         ]);
     }
 }

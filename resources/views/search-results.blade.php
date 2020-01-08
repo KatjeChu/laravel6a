@@ -46,7 +46,6 @@
                     <figure>
                         
                         <img src="img/products/{{$product->image_name}}" alt="" />
-                        <div class="p-status sale">{{$product->label}}</div>
                     </figure>
                     </a>
                     <div class="product-text">

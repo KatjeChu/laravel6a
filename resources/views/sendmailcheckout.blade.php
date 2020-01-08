@@ -2,12 +2,13 @@
 <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td width="100%" cellpadding="0" cellspacing="0">
-                <h1 style="font-size: 20px;">Сообщение из формы обратной связи</h1>
+                <h1 style="font-size: 20px;">Новый заказ</h1>
             </td>
         </tr>
         <tr>
             <td width="100%" cellpadding="0" cellspacing="0">
                 <p><b>От:</b> {{ $contactName }} {{ $contactSurname }}</p>
+                <p><b>Email:</b> {{ $contactEmail }}</p>
                 <p><b>Адрес:</b> {{ $contactAddress }}</p>
                 <p><b>Телефон:</b> {{ $contactPhonenumber }}</p>
                 <p><b>Комментарий:</b> {{ $contactComment }}</p>
