@@ -23,10 +23,7 @@
     <!-- Product Page Section Beign -->
     <section class="product-page">
         <div class="container">
-            <!-- <div class="product-control">
-                <a href="#">Previous</a>
-                <a href="#">Next</a>
-            </div> -->
+             
             <div class="row">
                 
                 <div class="col-lg-4">
@@ -43,6 +40,10 @@
                     
                 </div>
                 <div class="col-lg-8">
+                <!-- <div class="product-control">
+                <a href="#">Предыдущий товар</a>
+                <a href="#">Следующий товар</a>
+            </div>  -->
                     <div class="product-content">
                         <h2>{{$product->title}}</h2>
                         <div class="pc-meta">
